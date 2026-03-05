@@ -18,8 +18,15 @@ def get_students():
     return: Array of student objects
     """
     # TODO: replace with your implementation. This is a mock response
+<<<<<<< HEAD
     students = db.get_all_students()
     return jsonify(students), 200
+=======
+    return jsonify([
+        {'course': 'COMP1531', 'id': 1, 'mark': 85, 'name': 'Alice Zhang'},
+        {'course': 'COMP1531', 'id': 2, 'mark': 72, 'name': 'Bob Smith'}
+    ]), 200
+>>>>>>> upstream/eric/stats-feature
 
 
 @app.route("/students", methods=["POST"])
@@ -35,6 +42,7 @@ def create_student():
     # Getting the request body - replace with your implementation
     student_data = request.json
 
+<<<<<<< HEAD
     if not student_data or "name" not in student_data or "course" not in student_data:
         return jsonify({"error": "Missing required fields"}), 404
 
@@ -45,6 +53,9 @@ def create_student():
     )
 
     return jsonify(student), 200
+=======
+    pass
+>>>>>>> upstream/eric/stats-feature
 
 
 @app.route("/students/<int:student_id>", methods=["PUT"])
@@ -56,6 +67,7 @@ def update_student(student_id):
     param mark: The mark the student received (from request body)
     return: The updated student if successful
     """
+<<<<<<< HEAD
     student = db.get_student_by_id(student_id)
     if not student:
         return jsonify({"error": "Student not found"}), 404
@@ -70,6 +82,9 @@ def update_student(student_id):
     )
 
     return jsonify(updated), 200
+=======
+    pass  # replace with your implementation
+>>>>>>> upstream/eric/stats-feature
 
 
 @app.route("/students/<int:student_id>", methods=["DELETE"])
@@ -78,12 +93,16 @@ def delete_student(student_id):
     Route to delete student by id
     return: The deleted student
     """
+<<<<<<< HEAD
     student = db.delete_student(student_id)
 
     if not student:
         return jsonify({"error": "Student not found"}), 404
 
     return jsonify(student), 200
+=======
+    pass  # replace with your implementation
+>>>>>>> upstream/eric/stats-feature
 
 
 @app.route("/stats")
@@ -92,6 +111,7 @@ def get_stats():
     Route to show the stats of all student marks 
     return: An object with the stats (count, average, min, max)
     """
+<<<<<<< HEAD
     students = db.get_all_students()
 
     if not students:
@@ -120,6 +140,9 @@ def get_stats():
     }
 
     return jsonify(stats), 200
+=======
+    pass  # replace with your implementation
+>>>>>>> upstream/eric/stats-feature
 
 
 @app.route("/")
